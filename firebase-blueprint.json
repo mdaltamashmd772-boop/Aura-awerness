@@ -1,0 +1,43 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "Core profile information for the wellness journey.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "selectedIcon": { "type": "string" },
+        "lastSeedDate": { "type": "string" },
+        "notificationEnabled": { "type": "boolean" },
+        "notificationTime": { "type": "string" }
+      },
+      "required": ["name"]
+    },
+    "DailyLog": {
+      "title": "Daily Wellness Log",
+      "description": "Metrics and reflections for a specific day.",
+      "type": "object",
+      "properties": {
+        "date": { "type": "string" },
+        "mood": { "type": "integer" },
+        "energy": { "type": "integer" },
+        "gratitude": { "type": "array", "items": { "type": "string" } },
+        "seedCompleted": { "type": "boolean" },
+        "sleepHours": { "type": "number" },
+        "affirmation": { "type": "string" },
+        "aiReflection": { "type": "string" }
+      },
+      "required": ["date", "mood", "energy"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile document."
+    },
+    "/users/{userId}/logs/{date}": {
+      "schema": "DailyLog",
+      "description": "Individual daily wellness entries."
+    }
+  }
+}

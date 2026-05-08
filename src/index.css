@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
+
+  --color-aura-beige: #FDFBFA;
+  --color-aura-sand: #F7F3EF;
+  --color-aura-clay: #7A695C;
+  --color-aura-gold: #B48E4D;
+  --color-aura-ink: #1A1A1A;
+  --color-aura-mist: rgba(26, 26, 26, 0.03);
+  
+  /* Emotional Palette */
+  --color-mood-1: #4a5568; 
+  --color-mood-2: #718096; 
+  --color-mood-3: #c5a059; 
+  --color-mood-4: #d98c5f; 
+  --color-mood-5: #f6ad55; 
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.4; filter: blur(40px); }
+  50% { opacity: 0.7; filter: blur(60px); }
+}
+
+@keyframes reveal {
+  from { opacity: 0; clip-path: inset(100% 0 0 0); }
+  to { opacity: 1; clip-path: inset(0 0 0 0); }
+}
+
+.animate-breathe {
+  animation: breathe 8s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 12s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 10s ease-in-out infinite;
+}
+
+.animate-reveal {
+  animation: reveal 2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.glass-card {
+  @apply bg-white/30 backdrop-blur-2xl border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.04)];
+}
+
+.hero-gradient {
+  background: linear-gradient(to bottom, transparent 0%, var(--color-aura-beige) 95%);
+}
+
+.bottom-nav-gradient {
+  background: linear-gradient(to top, var(--color-aura-beige) 50%, transparent 100%);
+}
+
+.premium-btn {
+  @apply bg-aura-ink text-aura-beige px-8 py-4 rounded-full font-medium tracking-tight hover:bg-aura-gold transition-all duration-500 shadow-xl;
+}
